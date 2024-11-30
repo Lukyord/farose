@@ -1,0 +1,125 @@
+@font-face {
+    font-family: "FR SF";
+    src: url("../../font/FR SF/FRSFHeavy.eot");
+    src: url("../../font/FR SF/FRSFHeavy.eot?#iefix")
+            format("embedded-opentype"),
+        url("../../font/FR SF/FRSFHeavy.woff2") format("woff2"),
+        url("../../font/FR SF/FRSFHeavy.woff") format("woff"),
+        url("../../font/FR SF/FRSFHeavy.ttf") format("truetype"),
+        url("../../font/FR SF/FRSFHeavy.svg#FRSFHeavy") format("svg");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "FR SF";
+    src: url("../../font/FR SF/FRSFBold.eot");
+    src: url("../../font/FR SF/FRSFBold.eot?#iefix") format("embedded-opentype"),
+        url("../../font/FR SF/FRSFBold.woff2") format("woff2"),
+        url("../../font/FR SF/FRSFBold.woff") format("woff"),
+        url("../../font/FR SF/FRSFBold.ttf") format("truetype"),
+        url("../../font/FR SF/FRSFBold.svg#FRSFBold") format("svg");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "FR SF";
+    src: url("../../font/FR SF/FRSFLight.eot");
+    src: url("../../font/FR SF/FRSFLight.eot?#iefix")
+            format("embedded-opentype"),
+        url("../../font/FR SF/FRSFLight.woff2") format("woff2"),
+        url("../../font/FR SF/FRSFLight.woff") format("woff"),
+        url("../../font/FR SF/FRSFLight.ttf") format("truetype"),
+        url("../../font/FR SF/FRSFLight.svg#FRSFLight") format("svg");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "FR SF";
+    src: url("../../font/FR SF/FRSFRegular.eot");
+    src: url("../../font/FR SF/FRSFRegular.eot?#iefix")
+            format("embedded-opentype"),
+        url("../../font/FR SF/FRSFRegular.woff2") format("woff2"),
+        url("../../font/FR SF/FRSFRegular.woff") format("woff"),
+        url("../../font/FR SF/FRSFRegular.ttf") format("truetype"),
+        url("../../font/FR SF/FRSFRegular.svg#FRSFRegular") format("svg");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "FR SF";
+    src: url("../../font/FR SF/FRSFSemibold.eot");
+    src: url("../../font/FR SF/FRSFSemibold.eot?#iefix")
+            format("embedded-opentype"),
+        url("../../font/FR SF/FRSFSemibold.woff2") format("woff2"),
+        url("../../font/FR SF/FRSFSemibold.woff") format("woff"),
+        url("../../font/FR SF/FRSFSemibold.ttf") format("truetype"),
+        url("../../font/FR SF/FRSFSemibold.svg#FRSFSemibold") format("svg");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "FR Avn TH";
+    src: url("FRAvnTHBold.eot");
+    src: url("FRAvnTHBold.eot?#iefix") format("embedded-opentype"),
+        url("FRAvnTHBold.woff2") format("woff2"),
+        url("FRAvnTHBold.woff") format("woff"),
+        url("FRAvnTHBold.ttf") format("truetype"),
+        url("FRAvnTHBold.svg#FRAvnTHBold") format("svg");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "FR Avn TH";
+    src: url("../../font/FR Avn TH/FRAvnTHRegular.eot");
+    src: url("../../font/FR Avn TH/FRAvnTHRegular.eot?#iefix")
+            format("embedded-opentype"),
+        url("../../font/FR Avn TH/FRAvnTHRegular.woff2") format("woff2"),
+        url("../../font/FR Avn TH/FRAvnTHRegular.woff") format("woff"),
+        url("../../font/FR Avn TH/FRAvnTHRegular.ttf") format("truetype"),
+        url("../../font/FR Avn TH/FRAvnTHRegular.svg#FRAvnTHRegular")
+            format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "FR Avn TH";
+    src: url("../../font/FR Avn TH/FRAvnTHLight.eot");
+    src: url("../../font/FR Avn TH/FRAvnTHLight.eot?#iefix")
+            format("embedded-opentype"),
+        url("../../font/FR Avn TH/FRAvnTHLight.woff2") format("woff2"),
+        url("../../font/FR Avn TH/FRAvnTHLight.woff") format("woff"),
+        url("../../font/FR Avn TH/FRAvnTHLight.ttf") format("truetype"),
+        url("../../font/FR Avn TH/FRAvnTHLight.svg#FRAvnTHLight") format("svg");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "FR Avn TH";
+    src: url("../../font/FR Avn TH/FRAvnTHSemiBold.eot");
+    src: url("../../font/FR Avn TH/FRAvnTHSemiBold.eot?#iefix")
+            format("embedded-opentype"),
+        url("../../font/FR Avn TH/FRAvnTHSemiBold.woff2") format("woff2"),
+        url("../../font/FR Avn TH/FRAvnTHSemiBold.woff") format("woff"),
+        url("../../font/FR Avn TH/FRAvnTHSemiBold.ttf") format("truetype"),
+        url("../../font/FR Avn TH/FRAvnTHSemiBold.svg#FRAvnTHSemiBold")
+            format("svg");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}

@@ -1,0 +1,27 @@
+/* FOOTER ====================*/
+#footer {
+    background-color: var(--color-deep-blue);
+    color: var(--color-white);
+}
+.footer-nav {
+    padding: var(--spacing-50) var(--spacing-container);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    grid-gap: var(--spacing-120);
+    align-items: center;
+}
+
+.footer-nav .footer-menu {
+    display: flex;
+    grid-gap: var(--spacing-24);
+    align-items: center;
+    font-size: var(--font-size-description);
+    line-height: var(--line-height-description);
+    justify-content: center;
+}
+
+html.no-touchevents .footer-nav a:hover {
+    color: var(--color-white);
+    opacity: 0.5;
+}
