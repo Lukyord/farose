@@ -410,7 +410,5 @@ jQuery(document).ready(function ($) {
         }
     }
 
-    // Call the function on page load and resize
-    handleVideoAutoplay();
-    $(window).on("resize", handleVideoAutoplay);
+    onWindowResize(handleVideoAutoplay);
 });
