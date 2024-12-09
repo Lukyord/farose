@@ -62,6 +62,7 @@ $page_index = ($page == basename(dirname($_SERVER['PHP_SELF']), "/") || $page ==
     <div id="page" class="<?php if ($page == '404.php') {
                                 echo 'error-page';
                             } ?>">
+
         <header id="header">
             <div class="header-nav">
 
