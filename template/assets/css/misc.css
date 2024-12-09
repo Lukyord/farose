@@ -1,0 +1,99 @@
+/* DARA ==================== */
+.page-dara .dara-hero .sc-container {
+    padding-top: var(--hero-y-padding);
+    padding-bottom: var(--hero-y-padding);
+}
+
+.page-dara .all-dara .sc-inner {
+    padding-top: var(--spacing-60);
+    padding-bottom: var(--spacing-60);
+}
+
+@media (max-width: 835px) {
+    .page-dara .all-dara .sc-inner {
+        padding-top: var(--spacing-30);
+    }
+}
+
+/* DARA SINGLE ==================== */
+.dara-single-readmore {
+    position: relative;
+}
+
+.dara-single-readmore .sc-inner {
+    padding-bottom: var(--spacing-50);
+    margin-bottom: var(--spacing-80);
+}
+
+/* PROGRAM ==================== */
+.program-grid {
+    position: relative;
+}
+
+.program-grid .sc-inner {
+    padding-bottom: var(--spacing-20);
+    margin-bottom: var(--spacing-80);
+}
+
+.program-grid .grid {
+    --inner-radius: var(--spacing-20);
+    --inner-padding: var(--spacing-8);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(336px, 1fr));
+    row-gap: var(--spacing-24);
+    column-gap: 0;
+}
+
+@media (max-width: 835px) {
+    .program-grid .sc-inner {
+        margin-bottom: var(--spacing-60);
+    }
+
+    .program-grid .grid {
+        column-gap: var(--spacing-8);
+        row-gap: 0;
+    }
+}
+
+/* PAGE ==================== */
+.page-entry .sc-inner {
+    padding-bottom: var(--spacing-80);
+}
+.page-entry .sc-header {
+    padding: var(--spacing-50) 0;
+    justify-content: center;
+}
+
+.page-entry .entry-content {
+    max-width: var(--890px);
+    margin: 0 auto;
+}
+
+@media (max-width: 835px) {
+    .page-entry .sc-header {
+        padding: var(--spacing-20) 0;
+    }
+}
+
+/* 404 ==================== */
+.not-found-hero,
+.not-found-hero .sc-inner {
+    height: 100%;
+}
+
+.not-found-hero .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    grid-gap: var(--spacing-30);
+    text-align: center;
+    padding-bottom: 6.7901234568%;
+}
+
+@media (max-width: 835px) {
+    .not-found-hero .content-wrapper {
+        padding-bottom: 23.7068965517%;
+    }
+}

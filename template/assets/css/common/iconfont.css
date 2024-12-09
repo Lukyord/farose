@@ -26,6 +26,9 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.ic-playlist_play:before {
+    content: "\e95d";
+}
 .ic-person:before {
     content: "\e95c";
 }

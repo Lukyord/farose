@@ -1,11 +1,16 @@
 :root {
     --1061px: 66.3125rem;
     --1782px: 111.375rem;
+    --890px: 55.625rem;
     --760px: 47.5rem;
+    --637px: 39.8125rem;
+    --518px: 32.375rem;
+    --400px: 25rem;
     --364px: 22.75rem;
     --230px: 14.375rem;
     --183px: 11.4375rem;
     --180px: 11.25rem;
+    --168px: 10.5rem;
     --160px: 10rem;
     --140px: 8.75rem;
     --120px: 7.5rem;
@@ -123,6 +128,7 @@
     --spacing-120: var(--120px);
     --spacing-100: var(--100px);
     --spacing-80: var(--80px);
+    --spacing-72: var(--72px);
     --spacing-64: var(--64px);
     --spacing-60: var(--60px);
     --spacing-56: var(--56px);
@@ -140,7 +146,7 @@
     --spacing-7: var(--7px);
     --spacing-6: var(--6px);
     --container-max-width: var(--1782px);
-    --spacing-container: var(--spacing-10);
+    --spacing-container: var(--spacing-16);
     --spacing-x: 0px;
     --spacing-y: 0px;
 
@@ -157,6 +163,7 @@
     --border-style: solid;
     --border-color: var(--color-gray);
     --border: var(--border-width) var(--border-style) var(--border-color);
+    --border-radius: var(--16px);
 
     --input-height: var(--46px);
     --input-spacing-x: 0px;
@@ -165,7 +172,7 @@
 
     --button-height: var(--23px);
     --button-spacing-x: var(--spacing-10);
-    --button-spacing-y: var(--spacing-10);
+    --button-spacing-y: var(--spacing-12);
 
     --radius: var(--10px);
     --radius-x2: var(--20px);
@@ -940,7 +947,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 strong {
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-semibold);
 }
 
 .font-body {
@@ -1077,7 +1084,6 @@ select,
 .bg-img,
 .tab-content,
 .tabdata-content,
-.ic:before,
 *[class*="swiper-button-"] {
     transition: var(--duration) var(--timing-function);
 }
@@ -1100,6 +1106,12 @@ html.no-touchevents a:hover {
     pointer-events: auto;
 }
 
+.link-block {
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
 *:is(.button, .wp-element-button, .wp-block-button__link) {
     --gap-y: 0px;
     --gap-x: var(--spacing-10);
@@ -1119,7 +1131,7 @@ html.no-touchevents a:hover {
     width: fit-content;
     min-width: var(--183px);
     max-width: 100%;
-    height: auto;
+    height: fit-content;
     min-height: 0;
     max-height: none;
     padding: var(--button-spacing-y) var(--button-spacing-x) !important;
@@ -1363,16 +1375,19 @@ html.no-touchevents
 .entry-content .wp-block-group > *:not(:first-child),
 .entry-content .wp-block-column > *:not(:first-child),
 .entry-content li:not(:first-child) {
-    margin-top: var(--spacing-24);
+    margin-top: var(--spacing-30);
 }
 
 .entry-content {
     --wp--preset--font-size--normal: var(--font-size-body);
-    --wp--preset--font-size--small: var(--font-size-body-sub);
+    --wp--preset--font-size--small: var(--font-size-description);
     --wp--preset--font-size--medium: var(--font-size-h4);
     --wp--preset--font-size--large: var(--font-size-h3);
     --wp--preset--font-size--x-large: var(--font-size-h2);
     --wp--preset--font-size--huge: var(--font-size-h1);
+}
+.entry-content p {
+    text-indent: 2.5em;
 }
 .entry-content *:is(h1, h2, h3, h4, h5, h6) {
     font-family: var(--font-heading);
@@ -2674,6 +2689,7 @@ img.mfp-img {
     border: 1px solid var(--color-white);
     border-radius: 50%;
     padding: var(--spacing-6);
+    background-color: var(--color-white);
 }
 html.no-touchevents *[class*="swiper-button-"]:hover:after {
     border-color: var(--color-deep-blue);
@@ -2980,6 +2996,7 @@ html.no-touchevents *[class*="swiper-button-"]:hover:after {
     display: grid;
     grid-template-rows: 1fr auto;
     min-height: 100svh;
+    overflow-x: clip;
 }
 
 /*FILTER====================*/

@@ -762,11 +762,39 @@ jQuery(function ($) {
 
     //COUNTUP
     // if ($(".countup").length) {
-    //   $(".countup").countUp({
-    //     delay: 150,
-    //     time: 1500,
-    //   });
+    //     $(".countup").countUp({
+    //         delay: 150,
+    //         time: 4000,
+    //     });
     // }
+    // $.easing.easeOutExpoCustom = function (x) {
+    //     return x === 1 ? 1 : 1 - Math.pow(3, -10 * x);
+    // };
+    // $(".countup").each(function () {
+    //     var $this = $(this),
+    //         countTo = $this.attr("data-stop");
+
+    //     function addSeparator(num) {
+    //         return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    //     }
+
+    //     $({ countNum: $this.text() }).animate(
+    //         {
+    //             countNum: countTo,
+    //         },
+
+    //         {
+    //             duration: 3000,
+    //             easing: "easeOutExpoCustom",
+    //             step: function () {
+    //                 $this.text(addSeparator(Math.floor(this.countNum)));
+    //             },
+    //             complete: function () {
+    //                 $this.text(addSeparator(this.countNum));
+    //             },
+    //         }
+    //     );
+    // });
 
     //LIMARQUEE
     // if ($('*[data-js="liMarquee"]').length) {

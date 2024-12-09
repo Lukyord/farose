@@ -20,8 +20,8 @@ $page_index = ($page == basename(dirname($_SERVER['PHP_SELF']), "/") || $page ==
     <link rel="icon" type="image/png" sizes="96x96" href="<?php echo $root; ?>assets/img/favicon/favicon-96x96.png">
     <link rel="manifest" href="<?php echo $root; ?>assets/img/favicon/site.webmanifest">
     <link rel="mask-icon" href="<?php echo $root; ?>assets/img/favicon/safari-pinned-tab.svg" color="#3C2631">
-    <meta name="msapplication-TileColor" content="#E0DAD0">
-    <meta name="theme-color" content="#E0DAD0">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="theme-color" content="#FFFFFF">
 
     <!-- CSS:WP -->
     <link rel="stylesheet" href="<?php echo $root; ?>assets/css/_wp-css/blocks/style.min.css" type="text/css" media="all">
@@ -44,6 +44,9 @@ $page_index = ($page == basename(dirname($_SERVER['PHP_SELF']), "/") || $page ==
     <link rel="stylesheet" href="<?php echo $root; ?>assets/css/footer.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="<?php echo $root; ?>assets/css/header.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="<?php echo $root; ?>assets/css/index.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="<?php echo $root; ?>assets/css/misc.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="<?php echo $root; ?>assets/css/membership.css?v=<?php echo time(); ?>">
+
     <!-- JS:LIBRARY -->
     <script src="<?php echo $root; ?>assets/js/library/modernizr-custom.js"></script>
     <script src="<?php echo $root; ?>assets/js/library/jquery-3.6.0.min.js"></script>
@@ -107,13 +110,13 @@ $page_index = ($page == basename(dirname($_SERVER['PHP_SELF']), "/") || $page ==
                                                     ซื้อสินค้า
                                                 </a>
                                             </li>
-                                            <!-- <li>
+                                            <li>
                                                 <a class="menu-link" href="#outer-shopify">
                                                     ชาวช่องแบบมีใบ
                                                 </a>
-                                            </li> -->
+                                            </li>
                                             <li>
-                                                <a class="menu-link" href="#outer">
+                                                <a class="menu-link" href="<?php echo $root ?>membership.php">
                                                     สิทธิพิเศษชาวช่อง
                                                 </a>
                                             </li>

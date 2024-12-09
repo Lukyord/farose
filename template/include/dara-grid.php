@@ -15,13 +15,15 @@
             </div>
             <div class="show-md">
                 <svg xmlns="http://www.w3.org/2000/svg" width="94" height="365" viewBox="0 0 94 365" fill="none">
-                    <path class="path" d="M1 0V292C1 331.765 33.2355 364 73 364H94" stroke="#40A8B2" />
+                    <path
+                        class="path" d="M1 0V292C1 331.765 33.2355 364 73 364H94" stroke="#40A8B2" />
                 </svg>
             </div>
 
             <div class="hidden-device-md">
                 <svg xmlns="http://www.w3.org/2000/svg" width="8" height="231" viewBox="0 0 8 231" fill="none">
-                    <path class="path" d="M1 0V223C1 226.866 4.13401 230 8 230V230" stroke="#40A8B2" />
+                    <path
+                        class="path" d="M1 0V223C1 226.866 4.13401 230 8 230V230" stroke="#40A8B2" />
                 </svg>
             </div>
         </div>
@@ -37,8 +39,10 @@
             $image_index = ($i - 1) % 19 + 1;
         ?>
             <div class="dara">
-                <div class="dara-image blurred-media">
-                    <img src="./assets/img/design/dara<?php echo $image_index ?>.png" alt="Dara Image">
+                <div class="dara-image blurred-media" data-dara-name="ดารา <?php echo $i ?>">
+                    <a href="<?php echo $root ?>dara-single.php" class="link-block">
+                        <img src="./assets/img/design/dara<?php echo $image_index ?>.png" alt="Dara Image" draggable="false" loading="lazy">
+                    </a>
                 </div>
             </div>
         <?php

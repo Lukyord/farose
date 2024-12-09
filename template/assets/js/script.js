@@ -1,15 +1,15 @@
-// var path = document.querySelector(".path.test");
+// var path = document.querySelector(".path.reverse");
 // var length = path.getTotalLength();
 // console.log(length);
 
+/* ===== TEMPLATE ======================================== */
 // DASHLINE ANIMATE PATH
-jQuery(function ($) {
+jQuery(document).ready(function () {
     if ($(".path").length) {
         $(".path").each(function () {
-            var $path = $(this);
-
-            const path = $path;
+            const path = $(this);
             const ratioInView = 1 / 10;
+
             function inViewCallback() {
                 if (!$("html").hasClass("overflow-hidden")) {
                     path.addClass("in-view");
@@ -32,10 +32,9 @@ jQuery(function ($) {
 
     if ($(".line").length) {
         $(".line").each(function () {
-            var $line = $(this);
-
-            const line = $line;
+            const line = $(this);
             const ratioInView = 1 / 10;
+
             function inViewCallback() {
                 if (!$("html").hasClass("overflow-hidden")) {
                     line.addClass("in-view");
@@ -57,9 +56,63 @@ jQuery(function ($) {
     }
 });
 
-/* ===== INDEX ======================================== */
+// COUNTUP
+jQuery(document).ready(function () {
+    $.easing.easeOutExpoCustom = function (x) {
+        return x === 1 ? 1 : 1 - Math.pow(3, -10 * x);
+    };
+
+    function startCountAnimation(element) {
+        var $this = $(element),
+            countTo = $this.attr("data-stop");
+
+        function addSeparator(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        $({ countNum: $this.text() }).animate(
+            {
+                countNum: countTo,
+            },
+            {
+                duration: 3000,
+                easing: "easeOutExpoCustom",
+                step: function () {
+                    $this.text(addSeparator(Math.floor(this.countNum)));
+                },
+                complete: function () {
+                    $this.text(addSeparator(this.countNum));
+                },
+            }
+        );
+    }
+
+    if ($(".countup").length) {
+        $(".countup").each(function () {
+            const countUp = $(this);
+            const ratioInView = 1 / 10;
+
+            function inViewCallback() {
+                if (
+                    !$("html").hasClass("overflow-hidden") &&
+                    !countUp.hasClass("animated")
+                ) {
+                    countUp.addClass("in-view animated");
+                    startCountAnimation(countUp);
+                }
+            }
+
+            $(window).on("scroll resize", () => {
+                checkIfInView(ratioInView, countUp, inViewCallback, () => {});
+            });
+
+            checkIfInView(ratioInView, countUp, inViewCallback, () => {});
+        });
+    }
+});
+
 // DARA GRID
-jQuery(function ($) {
+jQuery(document).ready(function () {
     let curveConnectNumber = 0;
     const $wrapper = $(".dara-grid-wrapper");
     const cover = "./assets/img/design/dara-curve-connect.svg";
@@ -76,10 +129,20 @@ jQuery(function ($) {
 
     function updateRowNumber() {
         const totalDara = parseInt($(".dara-grid-wrapper").data("total-dara"));
+        const dara = $(".dara-grid-wrapper .dara");
         const divideBy = $(window).width() <= 835 ? 3 : 7;
         const rowNumber = Math.ceil(totalDara / divideBy);
         $(".dara-grid-wrapper").css("--row-number", rowNumber);
         curveConnectNumber = rowNumber - 1;
+
+        dara.removeClass("even-row");
+
+        dara.each(function (index) {
+            const rowIndex = Math.floor(index / divideBy) + 1;
+            if (rowIndex % 2 === 0) {
+                $(this).addClass("even-row");
+            }
+        });
 
         $wrapper.find(".curve-connect").remove();
 
@@ -89,6 +152,53 @@ jQuery(function ($) {
     }
 
     onWindowResize(updateRowNumber);
+});
+
+// DARA CURSOR
+jQuery(document).ready(function () {
+    const cursor = $(".cursor");
+    const daraImage = $(".dara-image");
+
+    function enableCursorInteractions() {
+        $(document).on("mousemove.cursorControl", function (e) {
+            const x = e.clientX;
+            const y = e.clientY;
+            cursor.css({ top: `${y}px`, left: `${x}px` });
+        });
+
+        daraImage.on("mouseenter.cursorControl", function () {
+            $("html").addClass("no-cursor");
+            cursor.addClass("hover-dara");
+
+            const daraName = $(this).data("dara-name");
+            cursor.html(daraName);
+        });
+
+        daraImage.on("mouseleave.cursorControl", function () {
+            $("html").removeClass("no-cursor");
+            cursor.removeClass("hover-dara");
+            cursor.html("");
+        });
+    }
+
+    function disableCursorInteractions() {
+        $(document).off("mousemove.cursorControl");
+        daraImage.off(".cursorControl");
+        cursor.removeClass("hover-dara").html("");
+        $("html").removeClass("no-cursor");
+    }
+
+    function handleCursorFeature() {
+        const isLargeScreen = $(window).width() > 835;
+
+        if (isLargeScreen) {
+            enableCursorInteractions();
+        } else {
+            disableCursorInteractions();
+        }
+    }
+
+    onWindowResize(handleCursorFeature);
 });
 
 /* ===== INDEX ======================================== */
@@ -134,7 +244,7 @@ jQuery(document).ready(function () {
                             limitProgress: 8,
                             prev: {
                                 scale: 0.85,
-                                opacity: 0,
+                                opacity: 1,
                             },
                             next: nextSlideConfig,
                         },
@@ -176,16 +286,131 @@ jQuery(document).ready(function () {
         $(".index-program .swiper").each(function () {
             const _this = $(this);
 
-            const slides = new Swiper(_this[0], {
-                speed: 800,
-                slidesPerView: "auto",
-                watchSlidesVisibility: true,
-                watchSlidesProgress: true,
-                navigation: {
-                    nextEl: ".index-program-swiper-button-next",
-                    prevEl: ".index-program-swiper-button-prev",
-                },
-            });
+            function initializeSwiper() {
+                const slides = new Swiper(_this[0], {
+                    speed: 800,
+                    slidesPerView: "auto",
+                    watchSlidesVisibility: true,
+                    watchSlidesProgress: true,
+                    loop: true,
+                    navigation: {
+                        nextEl: ".index-program-swiper-button-next",
+                        prevEl: ".index-program-swiper-button-prev",
+                    },
+                });
+            }
+
+            onWindowResize(initializeSwiper);
         });
     }
+});
+
+// CONNECTING CURVE
+jQuery(document).ready(function () {
+    $(".program-and-banner").each(function () {
+        const _this = $(this);
+        const scInner = _this.find(".sc-inner");
+        const program = _this.find(".index-program");
+        const banner = _this.find(".video-banner");
+
+        function setCurveHeight() {
+            const programTitleHeaight = program.find(".sc-title").outerHeight();
+            const curveHeight =
+                program.outerHeight() + banner.outerHeight() / 2;
+            const scInnerLeft = scInner.offset().left;
+
+            _this.css("--connect-curve-left", scInnerLeft + "px");
+            _this.css("--connect-curve-top", programTitleHeaight / 2 + "px");
+            _this.css("--connect-curve-height", curveHeight + "px");
+        }
+
+        onWindowResize(setCurveHeight);
+    });
+});
+
+// SPONSER
+jQuery(document).ready(function () {
+    $(".index-sponser .swiper").each(function () {
+        const _this = $(this);
+
+        const slides = new Swiper(_this[0], {
+            speed: 800,
+            slidesPerView: "auto",
+            watchSlidesVisibility: true,
+            watchSlidesProgress: true,
+            navigation: {
+                nextEl: ".index-sponser-swiper-button-next",
+                prevEl: ".index-sponser-swiper-button-prev",
+            },
+            centerInsufficientSlides: true,
+            autoplay: {
+                delay: 5000,
+            },
+        });
+    });
+});
+
+/* ===== TEMPLATE SECTION ======================================== */
+// MAIN MEDIA PLAY PAUSE BUTTON
+jQuery(document).ready(function () {
+    $(".play-pause-button").on("click", function () {
+        const video = $(this).closest(".media").find("video")[0];
+
+        $(this).toggleClass("playing");
+
+        if (video.paused) {
+            video.play();
+        } else {
+            video.pause();
+        }
+    });
+});
+
+// PROGRAM AUTOPLAY VIDEO ON HOVER
+jQuery(document).ready(function ($) {
+    function handleVideoAutoplay() {
+        var isLargeScreen = $(window).width() > 835;
+
+        $(".program-item").off("mouseenter mouseleave"); // Remove previous handlers
+
+        if (isLargeScreen) {
+            $(".program-item").on("mouseenter", function () {
+                var videoElement = $(this).find("video");
+                var iframeElement = $(this).find(".video-iframe");
+
+                if (videoElement.length) {
+                    // If it's a video element
+                    videoElement[0].play(); // Play the video
+                } else if (iframeElement.length) {
+                    // If it's a YouTube iframe
+                    var src = iframeElement.attr("src");
+                    if (!src.includes("autoplay=1")) {
+                        src = src.replace("autoplay=0", "autoplay=1");
+                        iframeElement.attr("src", src);
+                    }
+                }
+            });
+
+            $(".program-item").on("mouseleave", function () {
+                var videoElement = $(this).find("video");
+                var iframeElement = $(this).find(".video-iframe");
+
+                if (videoElement.length) {
+                    // If it's a video element
+                    videoElement[0].pause(); // Pause the video
+                } else if (iframeElement.length) {
+                    // If it's a YouTube iframe
+                    var src = iframeElement.attr("src");
+                    if (src.includes("autoplay=1")) {
+                        src = src.replace("autoplay=1", "autoplay=0");
+                        iframeElement.attr("src", src);
+                    }
+                }
+            });
+        }
+    }
+
+    // Call the function on page load and resize
+    handleVideoAutoplay();
+    $(window).on("resize", handleVideoAutoplay);
 });

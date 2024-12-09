@@ -12,6 +12,10 @@
     align-items: center;
 }
 
+.footer-nav .logo img {
+    width: 100%;
+}
+
 .footer-nav .footer-menu {
     display: flex;
     grid-gap: var(--spacing-24);

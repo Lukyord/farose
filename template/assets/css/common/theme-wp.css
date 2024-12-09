@@ -1,15 +1,13 @@
 /*WP PLUGIN:COOKIE====================*/
 .cky-consent-container {
-    width: 390px !important;
-    width: calc(100vw - var(--spacing-container) * 2) !important;
-    max-width: calc(100vw - var(--spacing-container) * 2) !important;
+    width: var(--400px) !important;
     padding: 0 !important;
     margin: 0 auto !important;
     position: fixed !important;
     z-index: 10000 !important;
     top: auto !important;
-    bottom: var(--spacing-container) !important;
-    left: var(--spacing-container) !important;
+    bottom: var(--spacing-20) !important;
+    left: var(--spacing-20) !important;
     right: auto !important;
     background: none;
     -webkit-user-select: none;
@@ -22,7 +20,7 @@
     max-width: 100% !important;
     margin: 0 auto !important;
     border: 0 !important;
-    border-radius: 0 !important;
+    border-radius: var(--4px) !important;
     box-shadow: 0px 4px 9px 0px
         rgba(var(--color-black-rgb), var(--opacity-light)) !important;
     background: var(--color-white) !important;
@@ -31,7 +29,7 @@
     font-weight: var(--font-weight-body) !important;
     font-size: var(--font-size-body) !important;
     line-height: var(--line-height-body) !important;
-    padding: var(--spacing-24) !important;
+    padding: var(--spacing-20) !important;
     transition: var(--duration) var(--timing-function) !important;
 }
 .cky-notice .cky-title,
@@ -76,27 +74,28 @@
     outline: 0 !important;
     padding: 0 !important;
     font-size: inherit !important;
-    text-decoration: none !important;
     white-space: nowrap !important;
     cursor: pointer !important;
-    color: inherit !important;
+    color: var(--color-theme) !important;
     opacity: 1 !important;
     border: 0 !important;
     border-radius: 0 !important;
     box-shadow: var(--cta-shadow) !important;
     transition: var(--duration) var(--timing-function) !important;
+    text-decoration: underline !important;
+    text-underline-offset: 2px;
+    text-decoration-thickness: from-font !important;
 }
-.cky-notice-des .cky-policy:hover {
+html.no-touchevents .cky-notice-des .cky-policy:hover {
     opacity: var(--opacity) !important;
 }
 .cky-notice-btn-wrapper {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
-    display: grid !important;
-    grid-template-columns: 1fr 1fr;
+    display: flex !important;
     align-items: center !important;
-    justify-content: center !important;
+    justify-content: space-between !important;
     text-align: center !important;
     grid-gap: var(--spacing-16) !important;
 }
@@ -121,7 +120,7 @@
     background: none !important;
     color: var(--color-theme) !important;
     font-family: var(--font-heading) !important;
-    font-weight: var(--font-weight-regular) !important;
+    font-weight: var(--font-weight-semibold) !important;
     font-style: normal !important;
     font-size: var(--font-size-body-sub) !important;
     line-height: normal !important;
@@ -133,8 +132,8 @@
     opacity: 1 !important;
     transition: var(--duration) var(--timing-function) !important;
 }
-.cky-notice-btn-wrapper .cky-btn:hover {
-    opacity: var(--opacity) !important;
+html.no-touchevents .cky-notice-btn-wrapper .cky-btn:hover {
+    opacity: 0.7 !important;
 }
 .cky-notice-btn-wrapper .cky-btn:is(.cky-btn-accept, .cky-btn-reject) {
     --gap-y: 0px;
@@ -146,12 +145,11 @@
     justify-content: center !important;
     height: var(--button-height) !important;
     min-width: 0 !important;
-    padding: 0 var(--gap-x) !important;
+    padding: 0 0 !important;
     grid-gap: var(--gap-y) var(--gap-x) !important;
-    color: var(--color-theme-couple) !important;
-    background: var(--color-theme) !important;
-    border: var(--border-width) solid var(--color-theme) !important;
-    border-radius: 50vw !important;
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
     opacity: 1 !important;
     overflow: hidden !important;
 }
@@ -172,20 +170,9 @@
     -webkit-filter: var(--filter-theme-couple);
     filter: var(--filter-theme-couple);
 }
-.cky-notice-btn-wrapper .cky-btn:is(.cky-btn-reject):not(:hover) {
-    color: var(--color-theme) !important;
-    background: transparent !important;
-    border-color: var(--border-color) !important;
-}
-.cky-notice-btn-wrapper .cky-btn:is(.cky-btn-reject):not(:hover) > .text {
-    transform: translateX(calc((var(--icon-width) + var(--gap-x)) / 2));
-}
-.cky-notice-btn-wrapper .cky-btn:is(.cky-btn-reject):not(:hover) > .icon {
-    opacity: 0;
-}
 
 .cky-notice-btn-wrapper .cky-btn-customize {
-    order: 2;
+    order: 3;
     grid-column: span 2;
     justify-self: center;
     width: -webkit-fit-content !important;
@@ -194,18 +181,14 @@
     max-width: 100% !important;
 }
 .cky-notice-btn-wrapper .cky-btn-reject {
-    order: 0;
+    order: 2;
 }
 .cky-notice-btn-wrapper .cky-btn-accept {
     order: 1;
+    text-decoration: underline !important;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px !important;
 }
-
-@media (min-width: 576px) {
-    .cky-consent-container {
-        width: 390px !important;
-    }
-}
-
 /*WP PLUGIN:WPCF7====================*/
 .wpcf7-form .wpcf7-form-control-wrap {
     position: relative;
@@ -252,6 +235,14 @@ form.wpcf7-form.submitting button[type="submit"] {
     .wpcf7-form .a-center-device-sm .ajax-loader {
         left: 0;
         right: 0;
+    }
+}
+
+@media (max-width: 575px) {
+    .cky-consent-container {
+        left: var(--spacing-container) !important;
+        bottom: var(--spacing-container) !important;
+        width: calc(100vw - var(--spacing-container) * 2) !important;
     }
 }
 
