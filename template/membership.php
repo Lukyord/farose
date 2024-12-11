@@ -101,11 +101,11 @@
                 ?>
                     <div class="faq-item animate fadeIn">
                         <div class="faq-line">
-                            <div class="bubble">Q</div>
+                            <div class="bubble bubble-q">Q</div>
                             <h5 class="question"><?php echo $faq["question"] ?></h5>
                         </div>
                         <div class="faq-line">
-                            <div class="bubble">A</div>
+                            <div class="bubble bubble-ans">A</div>
                             <p class="answer"><?php echo $faq["answer"] ?></p>
                         </div>
                     </div>

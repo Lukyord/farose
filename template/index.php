@@ -279,15 +279,16 @@
                 </div>
 
                 <div class="border-line show-md">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1786" height="184" viewBox="0 0 1786 184" preserveAspectRatio="none" fill="none">
-                        <path class="path" d="M121.471 1H31C14.4315 1 1 14.4315 1 31V153C1 169.569 14.4315 183 31 183H1755C1771.57 183 1785 169.569 1785 153V31C1785 14.4315 1771.57 1 1755 1H329" stroke="#40A8B2" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1394" height="184" viewBox="0 0 1394 184" preserveAspectRatio="none" fill="none">
+                        <path class="path" d="M95 1H31C14.4315 1 1 14.4315 1 31V153C1 169.569 14.4315 183 31 183H1363C1379.57 183 1393 169.569 1393 153V31C1393 14.4315 1379.57 1 1363 1H321" stroke="#40A8B2" />
                     </svg>
                 </div>
                 <div class="border-line show-md">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1394" height="184" viewBox="0 0 1394 184" preserveAspectRatio="none" fill="none">
-                        <path class="path reverse" d="M321 1H1363C1379.6 1 1393 14.4 1393 31V153C1393 169.6 1379.6 183 1363 183H31C14.4 183 1 169.6 1 153V31C1 14.4 14.4 1 31 1H95" stroke="#40A8B2" />
+                        <path path class="path reverse" d="M321 1H1363C1379.6 1 1393 14.4 1393 31V153C1393 169.6 1379.6 183 1363 183H31C14.4 183 1 169.6 1 153V31C1 14.4 14.4 1 31 1H95" stroke="#40A8B2" />
                     </svg>
                 </div>
+
 
                 <div class="slides">
                     <div class="swiper">

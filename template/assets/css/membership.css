@@ -59,11 +59,11 @@
     transform: translate(-50%, -50%);
 }
 
-.membeship-faq .bubble:has(+ .question):before {
+.membeship-faq .bubble.bubble-q:before {
     background-color: var(--color-theme);
 }
 
-.membeship-faq .bubble:has(+ .answer):before {
+.membeship-faq .bubble.bubble-ans:before {
     background-color: var(--color-light-sea-green);
 }
 

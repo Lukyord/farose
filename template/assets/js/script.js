@@ -302,6 +302,19 @@ jQuery(document).ready(function () {
 
             onWindowResize(initializeSwiper);
         });
+
+        const $indexProgram = $(".index-program");
+        const $swiperSlides = $(".index-program .swiper-slide");
+
+        if ($indexProgram.length && $swiperSlides.length) {
+            $swiperSlides.on("mouseenter", function () {
+                $indexProgram.addClass("hovering");
+            });
+
+            $swiperSlides.on("mouseleave", function () {
+                $indexProgram.removeClass("hovering");
+            });
+        }
     }
 });
 

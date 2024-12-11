@@ -287,7 +287,7 @@ html.no-touchevents .index-program *[class*="swiper-button-"]:hover:after {
 
 @media (min-width: 836px) {
     html.no-touchevents
-        .index-program:has(.swiper-slide:hover)
+        .index-program.hovering
         .swiper-slide.swiper-slide-visible {
         width: 19%;
     }
@@ -435,14 +435,14 @@ html.no-touchevents .index-program *[class*="swiper-button-"]:hover:after {
 }
 
 .index-sponser .border-line .path {
-    stroke-dashoffset: 3672.994384765625;
-    stroke-dasharray: 3672.994384765625;
-}
-
-.index-sponser .border-line .path.reverse {
     stroke-dashoffset: 2870.57763671875;
     stroke-dasharray: 2870.57763671875;
 }
+
+/* .index-sponser .border-line .path.reverse {
+    stroke-dashoffset: 2870.57763671875;
+    stroke-dasharray: 2870.57763671875;
+} */
 
 .index-sponser .slides {
     width: 100%;
