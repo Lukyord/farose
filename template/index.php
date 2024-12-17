@@ -44,10 +44,6 @@
                                                 <p>ซื้อสินค้า</p>
                                             </a>
                                         </div>
-                                        <div class="slide-nav">
-                                            <div class="index-hero-swiper-button-prev swiper-button-prev"></div>
-                                            <div class="index-hero-swiper-button-next swiper-button-next"></div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

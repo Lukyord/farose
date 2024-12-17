@@ -121,8 +121,8 @@ html.no-touchevents .index-hero .slide-content .button:hover {
     grid-gap: var(--spacing-12);
 }
 
-.index-hero .slides .swiper-slide .slide-content .slide-nav {
-    position: relative;
+.index-hero .slides .slide-nav {
+    position: absolute;
     display: flex;
     flex-direction: column-reverse;
     grid-gap: var(--spacing-6);
