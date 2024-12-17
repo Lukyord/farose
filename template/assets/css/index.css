@@ -126,6 +126,9 @@ html.no-touchevents .index-hero .slide-content .button:hover {
     display: flex;
     flex-direction: column-reverse;
     grid-gap: var(--spacing-6);
+    color: var(--color-white);
+    right: 5%;
+    bottom: 16%;
 }
 
 .index-hero .slides .slide-nav *[class*="swiper-button-"] {

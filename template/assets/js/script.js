@@ -127,6 +127,11 @@ jQuery(document).ready(function () {
                 </div>
             `;
 
+    // const curveConnectHTML = `
+    // <div class="curve-connect">
+    // </div>
+    // `;
+
     function updateRowNumber() {
         const totalDara = parseInt($(".dara-grid-wrapper").data("total-dara"));
         const dara = $(".dara-grid-wrapper .dara");
