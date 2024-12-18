@@ -1,7 +1,4 @@
 /* MEMBERSHIP ==================== */
-.membership p {
-    text-indent: unset;
-}
 
 /* MEMBERSHIP FAQ ==================== */
 .membeship-faq .faq-list {
@@ -24,6 +21,10 @@
     display: flex;
     padding: 0 var(--spacing-16);
     text-wrap: pretty;
+}
+
+.membeship-faq .faq-line p {
+    text-indent: unset;
 }
 
 .membeship-faq .faq-line a {

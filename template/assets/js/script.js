@@ -113,50 +113,48 @@ jQuery(document).ready(function () {
 
 // DARA GRID
 jQuery(document).ready(function () {
-    let curveConnectNumber = 0;
-    const $wrapper = $(".dara-grid-wrapper");
-    const cover = "./assets/img/design/dara-curve-connect.svg";
-    const coverM = "./assets/img/design/dara-curve-connect-m.svg";
-    const curveConnectHTML = `
-                <div class="curve-connect">
-                    <picture class="object">
-                        <source media="(min-width:836px)" srcset="${cover}">
-                        <source media="(min-width:0px)" srcset="${coverM}">
-                        <img src="${cover}" alt="Hero Background" loading="lazy" draggable="false">
-                    </picture>
-                </div>
-            `;
-
-    // const curveConnectHTML = `
-    // <div class="curve-connect">
-    // </div>
-    // `;
-
     function updateRowNumber() {
         const totalDara = parseInt($(".dara-grid-wrapper").data("total-dara"));
+        const $wrapper = $(".dara-grid-wrapper");
         const dara = $(".dara-grid-wrapper .dara");
-        const divideBy = $(window).width() <= 835 ? 3 : 7;
-        const rowNumber = Math.ceil(totalDara / divideBy);
-        $(".dara-grid-wrapper").css("--row-number", rowNumber);
-        curveConnectNumber = rowNumber - 1;
 
-        dara.removeClass("even-row");
+        const divideByMobile = 3;
+        const divideByPc = 7;
+
+        const rowNumberMobile = Math.ceil(totalDara / divideByMobile);
+        const rowNumberPc = Math.ceil(totalDara / divideByPc);
+
+        $(".dara-grid-wrapper").css("--row-number-pc", rowNumberPc);
+        $(".dara-grid-wrapper").css("--row-number-mb", rowNumberMobile);
+        const curveConnectNumber = rowNumberMobile - 1;
 
         dara.each(function (index) {
-            const rowIndex = Math.floor(index / divideBy) + 1;
-            if (rowIndex % 2 === 0) {
-                $(this).addClass("even-row");
+            const rowIndexMobile = Math.floor(index / divideByMobile) + 1;
+            const rowIndexPc = Math.floor(index / divideByPc) + 1;
+
+            if (rowIndexMobile % 2 === 0) {
+                $(this).addClass("even-row-mb");
+            }
+
+            if (rowIndexPc % 2 === 0) {
+                $(this).addClass("even-row-pc");
             }
         });
 
-        $wrapper.find(".curve-connect").remove();
-
+        // Add curve-connect elements
         for (let i = 0; i < curveConnectNumber; i++) {
-            $wrapper.prepend(curveConnectHTML);
+            const extraClass = i + 1 >= rowNumberPc ? "hidden-device-md" : "";
+
+            let curveConnectHTML = `
+                <div class="curve-connect ${extraClass}">
+                </div>
+            `;
+
+            $wrapper.append(curveConnectHTML);
         }
     }
 
-    onWindowResize(updateRowNumber);
+    updateRowNumber();
 });
 
 // DARA CURSOR
@@ -172,7 +170,7 @@ jQuery(document).ready(function () {
         });
 
         daraImage.on("mouseenter.cursorControl", function () {
-            $("html").addClass("no-cursor");
+            // $("html").addClass("no-cursor");
             cursor.addClass("hover-dara");
 
             const daraName = $(this).data("dara-name");
@@ -180,7 +178,7 @@ jQuery(document).ready(function () {
         });
 
         daraImage.on("mouseleave.cursorControl", function () {
-            $("html").removeClass("no-cursor");
+            // $("html").removeClass("no-cursor");
             cursor.removeClass("hover-dara");
             cursor.html("");
         });
@@ -386,47 +384,41 @@ jQuery(document).ready(function () {
 
 // PROGRAM AUTOPLAY VIDEO ON HOVER
 jQuery(document).ready(function ($) {
-    function handleVideoAutoplay() {
-        var isLargeScreen = $(window).width() > 835;
+    function playVideo(element) {
+        var videoElement = element.find("video");
+        var iframeElement = element.find(".video-iframe");
 
-        $(".program-item").off("mouseenter mouseleave"); // Remove previous handlers
-
-        if (isLargeScreen) {
-            $(".program-item").on("mouseenter", function () {
-                var videoElement = $(this).find("video");
-                var iframeElement = $(this).find(".video-iframe");
-
-                if (videoElement.length) {
-                    // If it's a video element
-                    videoElement[0].play(); // Play the video
-                } else if (iframeElement.length) {
-                    // If it's a YouTube iframe
-                    var src = iframeElement.attr("src");
-                    if (!src.includes("autoplay=1")) {
-                        src = src.replace("autoplay=0", "autoplay=1");
-                        iframeElement.attr("src", src);
-                    }
-                }
-            });
-
-            $(".program-item").on("mouseleave", function () {
-                var videoElement = $(this).find("video");
-                var iframeElement = $(this).find(".video-iframe");
-
-                if (videoElement.length) {
-                    // If it's a video element
-                    videoElement[0].pause(); // Pause the video
-                } else if (iframeElement.length) {
-                    // If it's a YouTube iframe
-                    var src = iframeElement.attr("src");
-                    if (src.includes("autoplay=1")) {
-                        src = src.replace("autoplay=1", "autoplay=0");
-                        iframeElement.attr("src", src);
-                    }
-                }
-            });
+        if (videoElement.length) {
+            videoElement[0].play();
+        } else if (iframeElement.length) {
+            var src = iframeElement.attr("src");
+            if (!src.includes("autoplay=1")) {
+                src = src.replace("autoplay=0", "autoplay=1");
+                iframeElement.attr("src", src);
+            }
         }
     }
 
-    onWindowResize(handleVideoAutoplay);
+    function pauseVideo(element) {
+        var videoElement = element.find("video");
+        var iframeElement = element.find(".video-iframe");
+
+        if (videoElement.length) {
+            videoElement[0].pause();
+        } else if (iframeElement.length) {
+            var src = iframeElement.attr("src");
+            if (src.includes("autoplay=1")) {
+                src = src.replace("autoplay=1", "autoplay=0");
+                iframeElement.attr("src", src);
+            }
+        }
+    }
+
+    $(".program-item").on("mouseenter touchstart", function (e) {
+        playVideo($(this));
+    });
+
+    $(".program-item").on("mouseleave touchend", function (e) {
+        pauseVideo($(this));
+    });
 });

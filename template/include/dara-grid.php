@@ -39,7 +39,7 @@
             $image_index = ($i - 1) % 19 + 1;
         ?>
             <div class="dara">
-                <div class="dara-image blurred-media" data-dara-name="ดารา <?php echo $i ?>">
+                <div class="dara-image blurred-media" data-dara-name="ดารา <?php echo $image_index ?>">
                     <a href="<?php echo $root ?>dara-single.php" class="link-block">
                         <img src="./assets/img/design/dara<?php echo $image_index ?>.png" alt="Dara Image" draggable="false" loading="lazy">
                     </a>

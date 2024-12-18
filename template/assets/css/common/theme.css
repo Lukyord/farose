@@ -64,7 +64,7 @@
     --color-light-sea-green-rgb: 64, 168, 178;
     --color-mint: #a0eacf;
     --color-mint-rgb: 160, 234, 207;
-    --color-active: var(--color-deep-blue);
+    --color-active: var(--color-light-sea-green);
 
     --color-body: var(--color-black);
     --color-body-rgb: var(--color-black-rgb);
@@ -1151,10 +1151,21 @@ html.no-touchevents a:hover {
 }
 
 html.no-touchevents
-    *:is(.button, .wp-element-button, .wp-block-button__link):hover {
-    background-color: var(--color-active) !important;
-    border-color: var(--color-active) !important;
+    *:is(.button, .wp-element-button, .wp-block-button__link):hover,
+html.no-touchevents
+    *:is(.button, .wp-element-button, .wp-block-button__link):active {
+    background-color: var(--color-theme) !important;
+    border-color: var(--color-theme) !important;
     color: var(--color-white) !important;
+}
+
+*:is(.button, .wp-element-button, .wp-block-button__link):disabled,
+*:is(.button, .wp-element-button, .wp-block-button__link).disabled {
+    background-color: var(--color-light-gray) !important;
+    border-color: var(--color-light-gray) !important;
+    color: rgba(var(--color-black-rgb), var(--opacity)) !important;
+    cursor: not-allowed;
+    pointer-events: none;
 }
 
 /*GENERAL====================*/
@@ -1386,8 +1397,8 @@ html.no-touchevents
     --wp--preset--font-size--x-large: var(--font-size-h2);
     --wp--preset--font-size--huge: var(--font-size-h1);
 }
-.entry-content p {
-    text-indent: 2.5em;
+.entry-content *:is(h1, h2, h3, h4, h5, h6, p) {
+    text-indent: var(--spacing-30);
 }
 .entry-content *:is(h1, h2, h3, h4, h5, h6) {
     font-family: var(--font-heading);

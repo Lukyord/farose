@@ -9,7 +9,7 @@
     <section class="sc sc-hero sc-template-single">
         <div class="sc-inner">
             <a href="<?php echo $root ?>dara.php" class="link-block back-to-all">
-                <i class="ic ic-caret-left"></i>
+                <i class="ic ic-long-caret size-icon-26"></i>
                 <p>รวมดาราช่อง</p>
             </a>
 
