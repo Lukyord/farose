@@ -116,7 +116,7 @@
 .dara-grid-wrapper {
     --dara-width: min(8.8888888889vw, var(--168px));
     --dara-ratio: 0.9275362319;
-    --dara-height: calc(var(--dara-width) * var(--dara-ratio));
+    --dara-height: calc(var(--dara-width) / var(--dara-ratio));
     --dara-row-gap: var(--spacing-36);
     display: grid;
     grid-template-columns: auto repeat(6, 1fr) auto auto;
@@ -146,7 +146,7 @@
 }
 
 .dara-grid-wrapper .curve-connect:before {
-    --height: calc((var(--dara-height) + var(--dara-row-gap)) * 1.1);
+    --height: calc((var(--dara-height) + var(--dara-row-gap)));
     content: "";
     height: var(--height);
     aspect-ratio: 0.4438202247;
@@ -157,7 +157,7 @@
 
 .dara-grid-wrapper .leading-curve {
     position: absolute;
-    top: calc((var(--dara-height) + var(--dara-row-gap)) / 1.9);
+    top: calc((var(--dara-height) + var(--dara-row-gap)) / 2);
     left: 1%;
     transform: translateY(-100%);
 }
@@ -218,6 +218,14 @@
 }
 
 @media (min-width: 836px) {
+    .dara-grid-wrapper .curve-connect:before {
+        margin-bottom: -10%;
+    }
+
+    .dara-grid-wrapper .leading-curve {
+        top: calc((var(--dara-height) + var(--dara-row-gap)) / 2.4);
+    }
+
     .dara.even-row-pc:nth-child(7n + 1) {
         grid-column: 7;
     }
@@ -272,6 +280,7 @@
 
     .dara-grid-wrapper .curve-connect:before {
         aspect-ratio: 0.078125;
+        margin-bottom: -100%;
     }
 
     .leading-curve .path {
