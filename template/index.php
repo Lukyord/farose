@@ -120,49 +120,70 @@
                             <?php
                             $program_arr = [
                                 [
-                                    "background" => "linear-gradient(187deg, #FCCBCA 0%, #451E60 100%), #D9D9D9;",
+                                    "bg-deg" => "187deg",
+                                    "bg-start-color" => "#FCCBCA",
+                                    "bg-end-color" => "#451E60",
+                                    "bg-fallback-color" => "#D9D9D9",
                                     "logo" => "./assets/img/design/program-logo1.png",
                                     "image" => "./assets/img/design/program-image1.jpg",
                                     "image_m" => "./assets/img/design/program-image1-m.jpg",
                                     "link" => $root . "program.php",
                                 ],
                                 [
-                                    "background" => "linear-gradient(0deg, #025A89 0%, #025A89 100%)",
+                                    "bg-deg" => "0deg",
+                                    "bg-start-color" => "#025A89",
+                                    "bg-end-color" => "#025A89",
+                                    "bg-fallback-color" => "#025A89",
                                     "logo" => "./assets/img/design/program-logo2.png",
                                     "image" => "./assets/img/design/program-image2.jpg",
                                     "image_m" => "./assets/img/design/program-image2-m.jpg",
                                     "link" => $root . "program.php",
                                 ],
                                 [
-                                    "background" => "linear-gradient(7deg, #004B74 0%, #A7DAC7 100%)",
+                                    "bg-deg" => "7deg",
+                                    "bg-start-color" => "#004B74",
+                                    "bg-end-color" => "#A7DAC7",
+                                    "bg-fallback-color" => "#A7DAC7",
                                     "logo" => "./assets/img/design/program-logo3.png",
                                     "image" => "./assets/img/design/program-image3.jpg",
                                     "image_m" => "./assets/img/design/program-image3-m.jpg",
                                     "link" => $root . "program.php",
                                 ],
                                 [
-                                    "background" => "linear-gradient(0deg, #EF7F4A 0%, #EF7F4A 100%)",
+                                    "bg-deg" => "0deg",
+                                    "bg-start-color" => "#EF7F4A",
+                                    "bg-end-color" => "#EF7F4A",
+                                    "bg-fallback-color" => "#EF7F4A",
                                     "logo" => "./assets/img/design/program-logo4.png",
                                     "image" => "./assets/img/design/program-image4.jpg",
                                     "image_m" => "./assets/img/design/program-image4-m.jpg",
                                     "link" => $root . "program.php",
                                 ],
                                 [
-                                    "background" => "linear-gradient(0deg, #E4F4EA 0%, #E4F4EA 100%)",
+                                    "bg-deg" => "0deg",
+                                    "bg-start-color" => "#E4F4EA",
+                                    "bg-end-color" => "#E4F4EA",
+                                    "bg-fallback-color" => "#E4F4EA",
                                     "logo" => "./assets/img/design/program-logo5.png",
                                     "image" => "./assets/img/design/program-image5.jpg",
                                     "image_m" => "./assets/img/design/program-image5-m.jpg",
                                     "link" => $root . "program.php",
                                 ],
                                 [
-                                    "background" => "linear-gradient(187deg, #FCCBCA 0%, #451E60 100%), #D9D9D9;",
+                                    "bg-deg" => "187deg",
+                                    "bg-start-color" => "#FCCBCA",
+                                    "bg-end-color" => "#451E60",
+                                    "bg-fallback-color" => "#D9D9D9",
                                     "logo" => "./assets/img/design/program-logo1.png",
                                     "image" => "./assets/img/design/program-image1.jpg",
                                     "image_m" => "./assets/img/design/program-image1-m.jpg",
                                     "link" => $root . "program.php",
                                 ],
                                 [
-                                    "background" => "linear-gradient(0deg, #025A89 0%, #025A89 100%)",
+                                    "bg-deg" => "0deg",
+                                    "bg-start-color" => "#025A89",
+                                    "bg-end-color" => "#025A89",
+                                    "bg-fallback-color" => "#025A89",
                                     "logo" => "./assets/img/design/program-logo2.png",
                                     "image" => "./assets/img/design/program-image2.jpg",
                                     "image_m" => "./assets/img/design/program-image2-m.jpg",
@@ -180,7 +201,7 @@
                                         class="wrapper animate scaleUp"
                                         data-wow-delay="<?php echo $index * 0.15 ?>s"
                                         data-wow-duration="0.6s"
-                                        style="--background: <?php echo $program["background"] ?>">
+                                        style="--background: linear-gradient(<?php echo $program["bg-deg"] ?>, <?php echo $program["bg-start-color"] ?> 0%, <?php echo $program["bg-end-color"] ?> 100%), <?php echo $program["bg-fallback-color"] ?>;">
                                         <div class="background-image">
                                             <?php if (preg_match("/\.(mp4)$/", $cover)) { ?>
                                                 <figure class="object">
