@@ -27,7 +27,7 @@
                 <a href="<?php echo $root ?>page.php">Privacy</a>
                 <a href="<?php echo $root ?>page.php">Cookie</a>
             </div>
-            <p class="size-description margin-top-6">© Farose studio 2024 | Web by ::*</p>
+            <p class="size-description margin-top-6">© Farose studio 2025 | Web by ::*</p>
         </div>
     </div>
 </footer>
