@@ -28,8 +28,11 @@
             </div>
         </div>
     <?php
-    }
+    } else {
     ?>
+        <div class="leading-curve-placeholder"></div>
+    <?php
+    } ?>
 
     <!-- Dara Grid -->
     <div class="dara-grid">
