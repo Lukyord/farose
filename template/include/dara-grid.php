@@ -1,4 +1,4 @@
-<?php $total_dara = 19 ?>
+<?php $total_dara = 40 ?>
 <div
     class="dara-grid-wrapper"
     data-total-dara="<?php echo $total_dara ?>">
